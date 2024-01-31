@@ -1,0 +1,73 @@
+$color-form: #c9dbe2 ;
+$bs-btn-bg: #c9dbe3;
+$bs-btn-color: #871F2B;
+$font-family-titres: 'Carattere', sans-serif;
+$font-family-textes: 'Pill Gothic 600mg', sans-serif;
+$font-family-base: $font-family-textes; 
+
+body{
+    min-height: 100vh;
+    font-family: $font-family-base;
+    margin: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family-titres;
+   
+}
+
+.border-general {
+    position: relative;
+    padding: 1.5rem 1.5rem;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    background: #fff;
+    background-clip: padding-box; 
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        z-index: -1;
+        margin: -2px; 
+        border-radius: inherit;
+        background:linear-gradient(to top left, #CDD7E9,  #59141C );
+    }   
+}
+.btn-primary{
+    color: $bs-btn-color !important;
+    background-color: $bs-btn-bg !important;
+    border-color: #000 !important;
+}
+
+.form-control, .form-select{
+    border-color: $color-form !important;
+}
+.form-control:focus, .form-select:focus{
+    box-shadow: none !important;
+}
+a {
+    text-decoration: none !important;
+}
+.random-link{
+    color:#000 !important;
+}
+.random-link:after{
+    content: "";
+    width: 0%;
+    height: 2px;
+    display: block;
+    transition: all 0.5s ease;
+    bottom: 25%;
+}
+.random-link:hover::after {
+    width: 15%;
+    height: 1px;
+    background-color: #000;
+}
+
+textarea.form-control {
+    resize: none !important;
+}
+
+.btn-font-plus{
+    font-size: 2rem !important;
+}

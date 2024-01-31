@@ -1,15 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}{{ parent()}}{% endblock %}
 
 {% block body %}
-    <div class="pink-stripe">
-        <h1>
-            Let's start coding&nbsp;&#129304;
-        </h1>
+
+<div class="container align-items-center accueil-container">
+    <div class="container">
+    <h2 class="mt-5 mb-5 text-center">Bienvenue dans notre restaurant Le Gueuleton Gastronomique - Une Expérience Culinaire Inoubliable</h2>
+    <p class="mb-5">Le Gueuleton Gastronomique ne se contente pas d'être un simple restaurant, c'est un voyage sensoriel au cœur de la gastronomie. Nous vous invitons à une expérience culinaire exceptionnelle, où chaque plat est une œuvre d'art savoureuse, créée avec passion et dévouement.</p>
+
+    <div class="row border-general">
+        <div class="col">
+            <h4 class="mt-3 mb-3">Notre Mission Gastronomique</h4>
+            <p>Nous croyons en la magie de la cuisine pour rassembler les gens. Le Gueuleton Gastronomique s'engage à offrir des plats raffinés et créatifs, mettant en valeur la richesse des saveurs locales et des ingrédients de qualité. Chaque bouchée est une célébration de la gastronomie française.</p>
+        </div>
+
+        <div class="col">
+            <h4 class="mt-3 mb-3">Explorez les Délices de notre Cuisine</h4>
+            <p>Plongez dans notre menu exquis pour découvrir une symphonie de saveurs. Des entrées délicates aux desserts divins, chaque plat est une expression de notre engagement envers l'excellence culinaire. Laissez-vous emporter par une aventure gustative qui éveillera vos papilles.</p>
+        </div>
     </div>
-    <div class="white-stripe">
-        <img src="{{ asset('build/images/logo-wild-code-school.svg') }}"
-             alt="">
+
+    <div class="mt-5"></div>
+
+    <h4 class="mt-5 mb-3">Savourez l'Art de la Table</h4>
+    <p>En dégustant nos plats soigneusement élaborés, vous soutenez l'art culinaire et contribuez à préserver la tradition gastronomique française. Le Gueuleton Gastronomique est le lieu idéal pour les amateurs de bonne cuisine, où chaque repas est une célébration de la passion pour les saveurs authentiques.</p>
+    <p>Explorez, appréciez et célébrez la gastronomie avec nous. Bienvenue dans notre univers culinaire où chaque plat raconte une histoire de délicatesse et de perfection.</p>
+    <p class="text-center mt-5 mb-5">Réservez votre table dès aujourd'hui et découvrez l'art de bien manger au Gueuleton Gastronomique!</p>
     </div>
+</div>
+
 {% endblock %}
