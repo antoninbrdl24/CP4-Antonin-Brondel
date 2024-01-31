@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="mt-4 container border-general">
+    <div>
+        <h2 class="px-3">Mentions légales</h2><br>
+    </div> 
+        <div class="container">
+            <p>
+            ÉDITEUR DU SITE :
+
+            Nom de l'entreprise : Le Gueuleton Gastronomique
+            Adresse de l'entreprise : 1 rue de la Gastronomie, 75000 Paris
+            Numéro de téléphone : 06 66 76 86 16
+            Adresse électronique : LeGueuletonGastronomique@gmail.com
+            SIRET : 007
+            </p>
+            <p>    
+            DIRECTEUR DE LA PUBLICATION :
+
+            Nom du directeur de la publication : Antonin Brondel
+            Coordonnées du directeur de la publication : antonin.random@gmail.com
+            </p>
+            <p>
+            HÉBERGEUR DU SITE :
+
+            Nom de la société d'hébergement : Le gueuleton
+            Adresse de l'hébergeur :  1 rue de la Gastronomie, 75000 Paris
+            Numéro de téléphone de l'hébergeur : 06 66 76 86 16
+            </p>
+            <p>
+            PROPRIÉTÉ INTELLECTUELLE :
+
+            Le site et son contenu (textes, images, vidéos, etc.) sont la propriété exclusive de Gueuleton Gastronomique
+            et sont protégés par le droit d'auteur.
+            Toute reproduction ou utilisation non autorisée est strictement interdite.
+
+            © 2023 Gueuleton Gastronomique. Tous droits réservés.
+            </p>
+            <p>
+            UTILISATION DES ŒUVRES :
+
+            Les œuvres présentées sur ce site sont la propriété de leurs artistes respectifs. Toute utilisation,
+            reproduction ou diffusion des œuvres doit faire l'objet d'une autorisation expresse de l'artiste.
+            </P>
+            <p>
+            DONNÉES PERSONNELLES :
+
+            Les données personnelles collectées sur ce site sont traitées conformément à notre politique de confidentialité.
+            </p>
+            <p>
+            COOKIES :
+
+            Ce site utilise des cookies. Pour en savoir plus sur l'utilisation des cookies et les options de gestion,
+            veuillez consulter notre politique en matière de cookies à cookies.com .
+            </p>
+            <p>
+            CONTACT :
+
+            Pour toute question ou demande, veuillez nous contacter à l'adresse suivante : LeGueuletonGastronomique@gmail.com .
+            </p>
+            <p>
+            DROIT APPLICABLE :
+
+            Le présent site est soumis au droit français.
+            </p>
+            <br>
+        </div>
+</div>
+    <div class="mt-4 mb-4 container border-general">
+        <div>
+            <h2 class="px-3"> RGPD </h2><br>
+        </div>
+        <div class="container">
+                <a href={{ "https://www.cnil.fr/fr/reglement-europeen-protection-donnees" }}>Lien vers le site de la CNIL</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

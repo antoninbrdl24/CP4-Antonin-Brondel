@@ -19,13 +19,12 @@ security:
             form_login:
                 login_path: app_login
                 check_path: app_login
-                always_use_default_target_path: true
-                username_parameter: 'email'
-                password_parameter: 'password'
+                default_target_path: app_index
                 enable_csrf: true
 
             logout:
                 path: /logout
+                target: app_index
             login_throttling:
                 max_attempts: 3
     # Easy way to control access for large sections of your site
