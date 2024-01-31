@@ -1,0 +1,19 @@
+vich_uploader:
+    db_driver: orm
+
+    metadata:
+        type: attribute
+    
+    mappings:
+        starter_poster:
+            uri_prefix: /uploads/images/starter/
+            upload_destination: '%upload_directory_starter%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        meal_poster:
+            uri_prefix: uploads/images/meal/
+            upload_destination: '%upload_directory_meal%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        dessert_poster:
+            uri_prefix: uploads/images/dessert
+            upload_destination: '%upload_directory_dessert%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

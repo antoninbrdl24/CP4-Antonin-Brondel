@@ -1,43 +1,19 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" type="image/png" href="{{ asset('build/images/logo-wild-code-school.svg') }}"/>
-        <title>{% block title %}Reset your password{% endblock %}</title>
+{% extends 'base.html.twig' %}
 
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-
-        {% block javascripts %}		
-            {{ importmap('app') }}
-        {% endblock %}
-    </head>
-
-<body class="body_login">
 {% block body %}
- <header>
-            {# Navbar top #}
-            <nav class="navbar_login">
-                <img src="{{ asset('images/logo-loreal-reveal-yourself-blanc.svg') }}" class="logo_dashboard">
-            </nav>
-        </header>
- <section class="section_login">
-<div class="div_login">
-    <h1 class="title_login mb-4">Reset your password</h1>
-
+ 
+<div class="container  col-2 justify-content-center mt-4 mx-auto border-general">
+    <div class="container">
+    <h1 class="mb-4">Reset your password</h1>
+    
     {{ form_start(resetForm) }}
-      <div class="mb-3">
-        {{ form_row(resetForm.plainPassword) }}
-     </div>
-        <button class="btn-primary">Reset password</button>
+
+    {{ form_row(resetForm.plainPassword) }}
+    <button class="btn btn-primary  mx-sm-4 mb-2">Reset password</button>
     {{ form_end(resetForm) }}
+    </div>
 </div>
-</section>
- <footer class="footer_login">
-            <p>Créé avec<i class="fa-solid fa-heart icon_footer"></i>Wild Code School x L'Oréal</p>
-        </footer>
+
+
 {% endblock %}
-</body>
-</html>
+

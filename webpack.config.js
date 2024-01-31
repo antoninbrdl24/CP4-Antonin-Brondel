@@ -12,7 +12,7 @@ Encore
     // public path used by the web server to access the output path
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
-    // .setManifestKeyPrefix('build/')
+    .setManifestKeyPrefix('build/')
     .copyFiles({
         from: './assets/images',
 
@@ -33,6 +33,7 @@ Encore
      */
     .addEntry('app', './assets/app.js')
 
+    .addEntry('bootstrap', './assets/bootstrap.js')
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
 

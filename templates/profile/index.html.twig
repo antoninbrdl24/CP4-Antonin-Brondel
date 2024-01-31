@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes informations{% endblock %}
+
+{% block body %}
+   <div class="mt-4 container border-general">
+    <h2>Mon compte</h2>
+    <p>Nom : {{ user.lastname }}</p>
+    <p>Prénom : {{ user.name }}</p>
+    <p>Adresse e-mail : {{ user.email }}</p>
+    <p><a class=" random-link" href="{{ path('app_forgot_password_request') }}">Renouveler votre mot de passe</a></p>
+    </div>
+{% endblock %}

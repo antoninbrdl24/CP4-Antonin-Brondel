@@ -1,5 +1,5 @@
 <div class="gradient-navbar-ab">
-	<div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
+	<div class="collapse px-4" id="navbarToggleExternalContent" data-bs-theme="dark">
 		<div>
 			<ul class="list-group list-group-flush">
 				<a href="#">
@@ -26,8 +26,8 @@
 				<button class="btn btn-primary dropdown-toggle me-5" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 					{{ app.user.name}}
 				</button>
-				<ul class="dropdown-menu">
-					<li><a class="dropdown-item" href="#">Mes informations</a></li>
+				<ul class="dropdown-menu dropdown-menu-lg-end">
+					<li><a class="dropdown-item" href="{{ path('app_my_profile')}}">Mes informations</a></li>
 					{% if is_granted('ROLE_ADMIN') %}
 					<li><a class="dropdown-item" href="#">Dashboard</a></li>
 					{% endif %}

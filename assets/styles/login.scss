@@ -1,0 +1,16 @@
+.random-link{
+    color:#000 !important;
+}
+.random-link:after{
+    content: "";
+    width: 0%;
+    height: 2px;
+    display: block;
+    transition: all 0.5s ease;
+    bottom: 25%;
+}
+.random-link:hover::after {
+    width: 15%;
+    height: 1px;
+    background-color: #000;
+}
