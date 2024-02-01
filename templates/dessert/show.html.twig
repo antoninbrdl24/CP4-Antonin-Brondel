@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{dessert.name}}{% endblock %}
+
+{% block body %}
+
+{# Partie concernant le dessert #}
+<h1 class="text-center mt-5">{{dessert.name}}</h1>
+
+<div class="container border-general col align-self-center mt-5 mb-5 px-4">
+        
+
+        <h2 class="card-title mb-4 text-center">A propos de ce dessert</h2>
+
+        <p class="pe-3 text-center">{{dessert.description}}</p>
+        <p class="pe-3 text-center"> Ce dessert fait partie de notre menu "{{dessert.menu.title}}" </p>
+        <img src="{{asset('uploads/dessert/' ~ dessert.picture )}}" alt="{{dessert.name}}" class="img-fluid"> 
+</div>
+
+
+{% endblock %}

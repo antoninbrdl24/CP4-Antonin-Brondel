@@ -3,11 +3,12 @@
 namespace App\Repository;
 
 use App\Entity\User;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 
 /**
  * @extends ServiceEntityRepository<User>
@@ -38,6 +39,19 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $user->setPassword($newHashedPassword);
         $this->getEntityManager()->persist($user);
         $this->getEntityManager()->flush();
+    }
+
+    public function queryFindAllUser(): Query
+    {
+        return $this->createQueryBuilder(alias:'u')->orderBy('u.id', 'ASC')->getQuery();
+    }
+
+    public function findLikeName(string $search): Query
+    {
+        $query = $this->createQueryBuilder('u')
+            ->andWhere('u.name LIKE :search  OR u.lastname LIKE :search')
+            ->setParameter('search', '%' . $search . '%');
+        return $query->getQuery();
     }
 
 //    /**

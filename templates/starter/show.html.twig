@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{starter.name}}{% endblock %}
+
+{% block body %}
+
+{# Partie concernant le starter #}
+<h1 class="text-center mt-5">{{starter.name}}</h1>
+
+<div class="container border-general col align-self-center mt-5 mb-5 px-4">
+        
+
+        <h2 class="card-title mb-4 text-center">A propos de cette entrée</h2>
+
+        <p class="pe-3 text-center">{{starter.description}}</p>
+        <p class="pe-3 text-center"> Cette entrée fait partie de notre menu "{{starter.menu.title}}" </p>
+        <img src="{{asset('uploads/starter/' ~ starter.picture )}}" alt="{{starter.name}}" class="img-fluid"> 
+</div>
+
+
+{% endblock %}

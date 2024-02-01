@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Meal;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Meal>
@@ -21,6 +22,18 @@ class MealRepository extends ServiceEntityRepository
         parent::__construct($registry, Meal::class);
     }
 
+    public function queryFindAllMeal(): Query
+    {
+        return $this->createQueryBuilder(alias:'m')->orderBy('m.id', 'ASC')->getQuery();
+    }
+
+    public function findLikeName(string $search): Query
+    {
+        $query = $this->createQueryBuilder('m')
+            ->andWhere('m.name LIKE :search')
+            ->setParameter('search', '%' . $search . '%');
+        return $query->getQuery();
+    }
 //    /**
 //     * @return Meal[] Returns an array of Meal objects
 //     */

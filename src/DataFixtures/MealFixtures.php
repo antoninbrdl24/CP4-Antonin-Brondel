@@ -32,6 +32,27 @@ class MealFixtures extends Fixture implements DependentFixtureInterface
         'Menu' => 'menu_Provence',
         'picture' => 'bouillabaisse.png'],
 
+        ['name' => 'Canard aux Cerises',
+        'description' => 'Le magret de canard rôti révèle toute sa tendreté dans notre plat emblématique. 
+        Une symphonie de saveurs s\'exprime dans la sauce aux cerises, accompagnée de pommes de terre 
+        sautées, offrant une expérience gastronomique parisienne inoubliable.',
+        'Menu' => 'menu_Paris',
+        'picture' => 'duck.png'],
+
+        ['name' => 'Rosette de Lyon aux Pistaches',
+        'description' => 'Découvrez la Rosette de Lyon aux Pistaches, une spécialité charcutière lyonnaise. 
+        Cette saucisse sèche, délicatement parfumée et parsemée de pistaches, révèle un équilibre de saveurs 
+        qui incarne l\'art culinaire traditionnel de Lyon. Accompagnée de cornichons et de pain de campagne, 
+        cette assiette célèbre la charcuterie lyonnaise avec élégance.',
+        'Menu' => 'menu_Lyon',
+        'picture' => 'rosette.png'],
+
+        ['name' => 'Choucroute Garnie',
+        'description' => 'Choucroute cuite lentement avec des saucisses alsaciennes, du lard, du jambon, 
+        des pommes de terre et assaisonnée de baies de genièvre.',
+        'Menu' => 'menu_Alsace',
+        'picture' => 'choucroute.png'],
+
     ];
 
     public function load(ObjectManager $manager): void
@@ -54,7 +75,7 @@ class MealFixtures extends Fixture implements DependentFixtureInterface
 
             $menu = $this->getReference($mealData['Menu']);
             $meal->setMenu($menu);
-            $menu->addSarter($meal);
+            $menu->addMeal($meal);
             $meal->setPicture($mealData['picture']);
 
             $manager->persist($meal);

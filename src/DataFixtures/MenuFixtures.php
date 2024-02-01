@@ -28,6 +28,24 @@ class MenuFixtures extends Fixture
         'description' => 'Plongez dans l\'élégance de la Provence avec notre menu, une délicieuse escapade 
         gastronomique qui capture l\'esprit de la région à travers des saveurs raffinées et équilibrées.'],
 
+
+        ['title' => 'Paris',
+        'description' => 'Plongez dans le raffinement parisien avec notre foie gras poêlé sur pain 
+        d\'épices, suivi du canard aux cerises, une fusion exquise de saveurs. Terminez en beauté 
+        avec nos célèbres macarons de Paris.'],
+
+
+        ['title' => 'Lyon',
+        'description' => 'Découvrez la cuisine lyonnaise avec nos quenelles de brochet en entrée, suivies 
+        d\'un coq au vin jaune et morilles. Clôturez votre repas avec la délicieuse tarte pralinée, 
+        une touche sucrée lyonnaise.'],
+
+
+        ['title' => 'Alsace',
+        'description' => 'Commencez par une tarte flambée aux oignons et lardons. Poursuivez avec une 
+        choucroute garnie, emblème alsacien. Terminez avec un kougelhopf aux amandes et raisins, un 
+        dessert délicieusement traditionnel.'],
+
     ];
 
     public function load(ObjectManager $manager): void
