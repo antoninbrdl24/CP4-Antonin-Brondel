@@ -44,7 +44,7 @@ class DessertFixtures extends Fixture implements DependentFixtureInterface
 
         foreach (self::DESSERT as $dessertData) {
             copy(
-                __DIR__ . '/data/meal/' . $dessertData['picture'],
+                __DIR__ . '/data/dessert/' . $dessertData['picture'],
                 __DIR__ . '/../../public' . $uploadDessertDir . '/' . $dessertData['picture']
             );
 
@@ -54,7 +54,7 @@ class DessertFixtures extends Fixture implements DependentFixtureInterface
 
             $menu = $this->getReference($dessertData['Menu']);
             $dessert->setMenu($menu);
-            $menu->addSarter($dessert);
+            $menu->addDessert($dessert);
             $dessert->setPicture($dessertData['picture']);
 
             $manager->persist($dessert);

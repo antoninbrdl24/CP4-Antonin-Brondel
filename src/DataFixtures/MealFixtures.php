@@ -54,7 +54,7 @@ class MealFixtures extends Fixture implements DependentFixtureInterface
 
             $menu = $this->getReference($mealData['Menu']);
             $meal->setMenu($menu);
-            $menu->addSarter($meal);
+            $menu->addMeal($meal);
             $meal->setPicture($mealData['picture']);
 
             $manager->persist($meal);

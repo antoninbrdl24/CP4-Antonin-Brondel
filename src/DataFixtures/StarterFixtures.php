@@ -54,7 +54,7 @@ class StarterFixtures extends Fixture implements DependentFixtureInterface
 
             $menu = $this->getReference($starterData['Menu']);
             $starter->setMenu($menu);
-            $menu->addSarter($starter);
+            $menu->addStarter($starter);
             $starter->setPicture($starterData['picture']);
 
             $manager->persist($starter);
