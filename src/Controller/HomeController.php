@@ -34,4 +34,10 @@ class HomeController extends AbstractController
     {
         return $this->render('home/mentions.html.twig');
     }
+
+    #[Route('/menu', name: 'menu_show')]
+    public function showMenus(): Response
+    {
+        return $this->render('home/menus.html.twig');
+    }
 }
