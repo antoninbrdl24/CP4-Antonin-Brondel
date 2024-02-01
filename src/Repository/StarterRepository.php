@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Starter;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Starter>
@@ -21,6 +22,18 @@ class StarterRepository extends ServiceEntityRepository
         parent::__construct($registry, Starter::class);
     }
 
+    public function queryFindAllStarter(): Query
+    {
+        return $this->createQueryBuilder(alias:'s')->orderBy('s.id', 'ASC')->getQuery();
+    }
+
+    public function findLikeName(string $search): Query
+    {
+        $query = $this->createQueryBuilder('s')
+            ->andWhere('s.name LIKE :search')
+            ->setParameter('search', '%' . $search . '%');
+        return $query->getQuery();
+    }
 //    /**
 //     * @return Starter[] Returns an array of Starter objects
 //     */

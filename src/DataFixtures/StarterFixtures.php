@@ -32,6 +32,27 @@ class StarterFixtures extends Fixture implements DependentFixtureInterface
         'Menu' => 'menu_Provence',
         'picture' => 'quiche_lorraine.png'],
 
+        ['name' => 'Foie Gras Poêlé sur Pain d\'Épices',
+        'description' => 'Découvrez l\'harmonie du foie gras poêlé, alliant sa texture fondante à un pain 
+        d\'épices moelleux, sublimé par une compote de figues suave. Une entrée exquise qui éveille les sens.',
+        'Menu' => 'menu_Paris',
+        'picture' => 'foie.png'],
+
+        ['name' => 'Quenelles de Brochet',
+        'description' => 'Succombez aux Quenelles de Brochet, une entrée lyonnaise d\'une finesse inégalée. 
+        Le mariage délicat du brochet, associé à la sauce Nantua crémeuse aux écrevisses, offre une symphonie
+         de saveurs qui évoque l\'authenticité des traditions culinaires de Lyon.',
+        'Menu' => 'menu_Lyon',
+        'picture' => 'brochet.png'],
+
+        ['name' => 'Salade de Munster',
+        'description' => 'Salade fraîche avec du fromage Munster, des pommes de terre, des lardons et des 
+        oignons, le tout assaisonné d\'une vinaigrette parfumée..',
+        'Menu' => 'menu_Alsace',
+        'picture' => 'munster.png'],
+
+
+
     ];
 
     public function load(ObjectManager $manager): void

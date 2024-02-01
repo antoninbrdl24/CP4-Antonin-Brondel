@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{menu.title}}{% endblock %}
+
+{% block body %}
+
+{# Partie concernant le menu #}
+<h1 class="text-center mt-5">{{menu.title}}</h1>
+
+<div class="container border-general mt-5 mb-5 px-4">
+
+    <div class="row justify-content-center align-content-center">
+        
+        <div class="card-body col-5">
+
+            <h2 class="card-title mb-4 text-center">A propos de ce menu</h2>
+
+            <p class="pe-3 text-center">{{menu.description}}</p>
+
+            <div class="row">
+                <div class="col">
+                    <h3 class="mt-5">L'entrée</h3>
+                    {% for starter in menu.starters %}
+                    <p class="pe-3">{{starter.name}}</p> 
+                    <p class="pe-3">{{starter.description}} </p>
+                    <img src="{{asset('uploads/starter/' ~ starter.picture) }}" alt="{{starter.name}}" class="img-fluid"> 
+                    <p class="mx-auto mt-1">
+                            <a class="menu-link" href="{{ path('starter_show', {id:starter.id})}}"> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
+                            </svg> Voir la fiche technique
+                            </a>
+                    </p> 
+                    {% endfor %} 
+                </div>
+                <div class="col">
+                    <h3 class="mt-5">Le plat</h3>
+                    {% for meal in menu.meals %}
+                    <p class="pe-3">{{meal.name}}</p> 
+                    <p class="pe-3">{{meal.description}} </p>
+                    <img src="{{asset('uploads/meal/' ~ meal.picture)}}" alt="{{meal.name}}" class="img-fluid">  
+                    <p class="mx-auto mt-1">
+                            <a class="menu-link" href="{{ path('meal_show', {id:meal.id})}}"> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
+                            </svg> Voir la fiche technique
+                            </a>
+                    </p>
+                    {% endfor %}  
+                </div>
+                <div class="col">
+                    <h3 class="mt-5">Le dessert</h3>
+                     {% for dessert in menu.desserts %}
+                    <p class="pe-3">{{dessert.name}}</p> 
+                    <p class="pe-3">{{dessert.description}} </p>
+                    <img src="{{asset('uploads/dessert/' ~ dessert.picture)}}" alt="{{dessert.name}}" class="img-fluid">
+                    <p class="mx-auto mt-1">
+                            <a class="menu-link" href="{{ path('dessert_show', {id:dessert.id})}}"> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
+                            </svg> Voir la fiche technique
+                            </a>
+                    </p>
+                    {% endfor %}    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{# Partie commentaires #}
+<div class="container">
+<h2>Commentaires</h2>
+{% if comments is not empty %}
+    <ul>
+        {% for comment in comments %}
+            <li>
+                {{ comment.rate }} / 10 
+                <p> {{ comment.content }} </p>
+                <p>Par {{ comment.author.name }} le {{ comment.createdAt|date('d/m/Y H:i') }}</p>
+                {% if is_granted('ROLE_ADMIN') %}
+                    {# Afficher le bouton de suppression pour les administrateurs pour tous les commentaires #}
+                    <a href="{{ path('comment_delete', {'id': comment.id}) }}">Supprimer</a>
+                {% elseif is_granted('ROLE_USER') and comment.author == app.user %}
+                    {# Afficher le bouton de suppression pour ceux qui en sont uniquement les auteurs #}
+                <button type="button" class="btn btn-primary" onclick="window.location='{{ path('comment_delete', {'id': comment.id}) }}'">Supprimer</button>
+                <button type="button" class="btn btn-primary" onclick="window.location='{{ path('comment_edit', {'id': comment.id}) }}'">Modifier</button>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Ce menu n'a reçu aucun commentaire encore. Soyez le premier !</p>
+    {% endif %}
+    {% if app.user %}
+    {{ form_start(form) }}
+    <div class="border-general mb-5">
+        <div class="mb-3">
+            {{ form_row(form.rate) }}
+        </div>
+        <div class="mb-3">
+           {{ form_row(form.content,{'label': 'Votre commentaire'|trans})  }}
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter votre commentaire</button>
+    </div>
+    {{ form_end(form) }}
+{% else %}
+    <p class="mb-5">Connectez-vous pour ajouter un commentaire.</p>
+{% endif %}
+</div>
+</div>
+{% endblock %}

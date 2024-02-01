@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Dessert;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Dessert>
@@ -21,6 +22,18 @@ class DessertRepository extends ServiceEntityRepository
         parent::__construct($registry, Dessert::class);
     }
 
+    public function queryFindAllDessert(): Query
+    {
+        return $this->createQueryBuilder(alias:'d')->orderBy('d.id', 'ASC')->getQuery();
+    }
+
+    public function findLikeName(string $search): Query
+    {
+        $query = $this->createQueryBuilder('d')
+            ->andWhere('d.name LIKE :search')
+            ->setParameter('search', '%' . $search . '%');
+        return $query->getQuery();
+    }
 //    /**
 //     * @return Dessert[] Returns an array of Dessert objects
 //     */

@@ -32,6 +32,29 @@ class DessertFixtures extends Fixture implements DependentFixtureInterface
         'Menu' => 'menu_Provence',
         'picture' => 'isle.jpg'],
 
+        ['name' => 'Macarons',
+        'description' => 'Craquez pour notre assortiment de Macarons de Paris, des petits joyaux croustillants 
+        aux couleurs vives. Chaque bouchée révèle des garnitures exquises, créant une finale sucrée qui capture 
+        l\'essence de la pâtisserie parisienne.',
+        'Menu' => 'menu_Paris',
+        'picture' => 'macarons.png'],
+
+        ['name' => 'Tarte à la Praline',
+        'description' => 'Clôturez votre repas avec la Tarte Pralinée, spécialité lyonnaise sucrée et croquante. 
+        La praline rose crée une sensation délicate en bouche, rendant ce dessert incontournable pour 
+        une expérience gustative lyonnaise authentique.',
+        'Menu' => 'menu_Lyon',
+        'picture' => 'praline.png'],
+
+        ['name' => 'Bretzel Sucré à la Pâte d\'Amandes',
+        'description' => 'Savourez notre Bretzel Sucré, une délicieuse tradition alsacienne revisitée. 
+        Ce doux délice, fourré à la pâte d\'amandes, allie la tendresse du bretzel à une touche sucrée exquise. 
+        Un incontournable dessert qui capture l\'essence sucrée de la région de manière délicieusement 
+        traditionnelle.',
+        'Menu' => 'menu_Alsace',
+        'picture' => 'bretzel.png'],
+
+
     ];
 
     public function load(ObjectManager $manager): void
