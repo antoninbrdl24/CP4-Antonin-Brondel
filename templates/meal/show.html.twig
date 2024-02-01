@@ -19,7 +19,11 @@
         </p>
         {% endif %}
         <p class="pe-3 text-center"> Ce plat fait partie de notre menu "{{meal.menu.title}}" </p>
-        <img src="{{asset('uploads/meal/' ~ meal.picture )}}" alt="{{meal.name}}" class="img-fluid"> 
+        {% if meal.id <= 6 %}
+                <img class="img-fluid" src="/uploads/meal/{{ meal.picture }}" alt="{{ meal.name }}">
+        {% else %}
+                <img class="img-fluid" src="/uploads/images/meal/{{ meal.picture }}" alt="{{ meal.name }}">
+        {% endif %}
 </div>
 
 

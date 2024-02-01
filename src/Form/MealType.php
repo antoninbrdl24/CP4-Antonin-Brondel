@@ -19,13 +19,27 @@ class MealType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class)
-            ->add('allergens', TextType::class, [
+            ->add('name', TextType::class, [
+                'label' => 'Nom',
+            ])
+            ->add('allergens', ChoiceType::class, [
+                'choices'  => [
+                    'oeuf' => 'oeuf',
+                    'lactose' => 'lactose',
+                    'arachadides' => 'arachadides',
+                    'crustacés' => 'crustacés',
+                    'pectine' => 'pectine',
+                    'gluten' => 'gluten',
+                    'poisson' => 'poisson',
+                ],
                 'required' => false,
+                'multiple' => true,
+                'expanded' => true,
             ])
             ->add('description', TextareaType::class)
             ->add('pictureFile', VichFileType::class, [
                 'required'      => false,
+                'label' => 'Image',
                 'allow_delete'  => true,
                 'download_uri' => true,
             ])

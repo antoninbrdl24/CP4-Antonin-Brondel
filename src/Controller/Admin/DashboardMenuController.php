@@ -13,10 +13,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/admin/dashboard', name: 'admin_menu_')]
+#[Route('/admin/dashboard/menu', name: 'admin_menu_')]
 class DashboardMenuController extends AbstractController
 {
-    #[Route('/menu', name: 'index')]
+    #[Route('/index', name: 'index')]
     public function index(
         Menu $menu,
         MenuRepository $menuRepository,
@@ -32,11 +32,32 @@ class DashboardMenuController extends AbstractController
         );
         return $this->render('admin/menu/index.html.twig', [
             'menus' => $pagination,
+            'starters' => $menu->getStarters(),
+            'meals' => $menu->getMeals(),
+            'desserts' => $menu->getDesserts(),
         ]);
     }
 
+    #[Route('/new', name:'new')]
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $menu = new Menu();
 
-    #[Route('/editMenu/{id}', name: 'edit')]
+        $form = $this->createForm(MenuType::class, $menu);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($menu);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('admin_menu_index');
+        }
+
+        //Render the form
+        return $this->render('admin/menu/new.html.twig', ['form' => $form]);
+    }
+
+    #[Route('/edit/{id}', name: 'edit')]
     public function editMenu(Request $request, Menu $menu, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(MenuType::class, $menu);
@@ -57,7 +78,7 @@ class DashboardMenuController extends AbstractController
         ]);
     }
 
-    #[Route('/deleteMenu/{id}', name: 'delete')]
+    #[Route('/delete/{id}', name: 'delete')]
     public function deleteMenu(
         Request $request,
         int $id,

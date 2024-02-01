@@ -16,10 +16,10 @@ use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/admin/dashboard', name: 'admin_dessert_')]
+#[Route('/admin/dashboard/dessert', name: 'admin_dessert_')]
 class DashboardDessertController extends AbstractController
 {
-    #[Route('/dessert', name: 'index')]
+    #[Route('/index', name: 'index')]
     public function index(
         DessertRepository $dessertRepository,
         PaginatorInterface $paginator,
@@ -58,7 +58,25 @@ class DashboardDessertController extends AbstractController
         ]);
     }
 
-    #[Route('/editDessert/{id}', name: 'edit')]
+    #[Route('/new', name:'new')]
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $dessert = new Dessert();
+
+        $form = $this->createForm(DessertType::class, $dessert);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($dessert);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('admin_dessert_index');
+        }
+
+        return $this->render('admin/dessert/new.html.twig', ['form' => $form]);
+    }
+
+    #[Route('/edit/{id}', name: 'edit')]
     public function editDessert(Request $request, Dessert $dessert, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(DessertType::class, $dessert);
@@ -83,7 +101,7 @@ class DashboardDessertController extends AbstractController
         ]);
     }
 
-    #[Route('/deleteDessert/{id}', name: 'delete', methods: ['POST'])]
+    #[Route('/delete/{id}', name: 'delete', methods: ['POST'])]
     public function deleteDessert(
         Request $request,
         Dessert $dessert,

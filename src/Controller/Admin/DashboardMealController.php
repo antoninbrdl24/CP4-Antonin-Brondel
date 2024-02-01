@@ -16,10 +16,10 @@ use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/admin/dashboard', name: 'admin_meal_')]
+#[Route('/admin/dashboard/meal', name: 'admin_meal_')]
 class DashboardMealController extends AbstractController
 {
-    #[Route('/meal', name: 'index')]
+    #[Route('/index', name: 'index')]
     public function index(
         MealRepository $mealRepository,
         PaginatorInterface $paginator,
@@ -58,7 +58,25 @@ class DashboardMealController extends AbstractController
         ]);
     }
 
-    #[Route('/editMeal/{id}', name: 'edit')]
+    #[Route('/new', name:'new')]
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $meal = new Meal();
+
+        $form = $this->createForm(MealType::class, $meal);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($meal);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('admin_meal_index');
+        }
+
+        return $this->render('admin/meal/new.html.twig', ['form' => $form]);
+    }
+
+    #[Route('/edit/{id}', name: 'edit')]
     public function editMeal(Request $request, Meal $meal, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(MealType::class, $meal);
@@ -83,7 +101,7 @@ class DashboardMealController extends AbstractController
         ]);
     }
 
-    #[Route('/deleteMeal/{id}', name: 'delete', methods: ['POST'])]
+    #[Route('/delete/{id}', name: 'delete', methods: ['POST'])]
     public function deleteMeal(
         Request $request,
         Meal $meal,

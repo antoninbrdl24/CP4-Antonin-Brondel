@@ -16,10 +16,10 @@ use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/admin/dashboard', name: 'admin_starter_')]
+#[Route('/admin/dashboard/starter', name: 'admin_starter_')]
 class DashboardStarterController extends AbstractController
 {
-    #[Route('/starter', name: 'index')]
+    #[Route('/index', name: 'index')]
     public function index(
         StarterRepository $starterRepository,
         PaginatorInterface $paginator,
@@ -58,7 +58,25 @@ class DashboardStarterController extends AbstractController
         ]);
     }
 
-    #[Route('/editStarter/{id}', name: 'edit')]
+    #[Route('/new', name:'new')]
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $starter = new Starter();
+
+        $form = $this->createForm(StarterType::class, $starter);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($starter);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('admin_starter_index');
+        }
+
+        return $this->render('admin/starter/new.html.twig', ['form' => $form]);
+    }
+
+    #[Route('/edit/{id}', name: 'edit')]
     public function editStarter(Request $request, Starter $starter, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(StarterType::class, $starter);
@@ -83,7 +101,7 @@ class DashboardStarterController extends AbstractController
         ]);
     }
 
-    #[Route('/deleteStarter/{id}', name: 'delete', methods: ['POST'])]
+    #[Route('/delete/{id}', name: 'delete', methods: ['POST'])]
     public function deleteStarter(
         Request $request,
         Starter $starter,

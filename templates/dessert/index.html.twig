@@ -10,7 +10,11 @@
             {% for dessert in desserts %}
             <div class="col-4">
                 <div class="m-3 card">
-                    <img src="/uploads/dessert/{{ dessert.picture }}" alt="{{dessert.name}}">
+                    {% if dessert.id <= 6 %}
+                            <img class="img-fluid" src="/uploads/dessert/{{ dessert.picture }}" alt="{{ dessert.name }}">
+                    {% else %}
+                            <img class="img-fluid" src="/uploads/images/dessert/{{ dessert.picture }}" alt="{{ dessert.name }}">
+                    {% endif %}
                     <h2 class="pt-2 text-center"> {{dessert.name}}</h2>
                     
                     <p class="mx-auto mt-1">

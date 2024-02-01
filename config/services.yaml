@@ -5,8 +5,8 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     upload_directory_starter: '%kernel.project_dir%/public/uploads/images/starter/'
-    upload_directory_meal: '%kernel.project_dir%/public/uploads/meal/'
-    upload_directory_dessert: '%kernel.project_dir%/public/uploads/dessert/'
+    upload_directory_meal: '%kernel.project_dir%/public/uploads/images/meal/'
+    upload_directory_dessert: '%kernel.project_dir%/public/uploads/images/dessert/'
     mailer_from: '%env(resolve:MAILER_FROM_ADDRESS)%'
 
 services:
@@ -16,6 +16,19 @@ services:
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
     
     App\Entity\User: ~
+    App\Naming\OriginalNamer:
+        public: true
+    App\Naming\OriginalNamer.starter:
+        class: App\Naming\OriginalNamer
+        public: true
+
+    App\Naming\OriginalNamer.meal:
+        class: App\Naming\OriginalNamer
+        public: true
+
+    App\Naming\OriginalNamer.dessert:
+        class: App\Naming\OriginalNamer
+        public: true
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     App\:

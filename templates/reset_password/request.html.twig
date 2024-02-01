@@ -1,12 +1,12 @@
 {% extends 'base.html.twig'%} 
 {% block body %}
-<div class="container col-3 justify-content-center mt-4 mx-auto border-general">
-    <div class="container px-2">
-    <h1 class=" mb-4">Reset your password</h1>
-
+<div class="container col-4 d-flex flex-column justify-content-center align-items-center  mt-4  border-general">
+    <h1 class="text-center mb-4">Reset your password</h1>
+    <div class="mb-3 text-center">
     {{ form_start(requestForm) }}
+        <div class="d-flex justify-content-center">
         {{ form_row(requestForm.email,  {'attr': {'placeholder': 'email', 'class': 'form-block' }}) }}
-        <div class="mb-3">
+        </div>
             <small>
                 Enter your email address, and we will send you a
                 link to reset your password.
@@ -15,6 +15,5 @@
 
         <button class="btn btn-primary  mx-sm-4 mb-2">Envoyer</button>
     {{ form_end(requestForm) }}
-    </div>
 </div>
 {% endblock %}

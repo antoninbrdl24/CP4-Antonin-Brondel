@@ -8,12 +8,12 @@ vich_uploader:
         starter:
             uri_prefix: /uploads/images/starter/
             upload_destination: '%upload_directory_starter%'
-            namer: Vich\UploaderBundle\Naming\OrignameNamer
+            namer: App\Naming\OriginalNamer
         meal:
-            uri_prefix: uploads/images/meal/
+            uri_prefix: /uploads/images/meal/
             upload_destination: '%upload_directory_meal%'
-            namer: Vich\UploaderBundle\Naming\OrignameNamer
+            namer: App\Naming\OriginalNamer
         dessert:
-            uri_prefix: uploads/images/dessert
+            uri_prefix: /uploads/images/dessert
             upload_destination: '%upload_directory_dessert%'
-            namer: Vich\UploaderBundle\Naming\OrignameNamer
+            namer: App\Naming\OriginalNamer

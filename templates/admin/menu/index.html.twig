@@ -4,15 +4,21 @@
 
 {% block body %}
 <h1 class="mx-auto pt-4">Liste des Menus</h1>
+ <div class='mt-2 mb-5 d-flex justify-content-center'> 
+    <a href="{{ path('admin_menu_new')}}" class="btn btn-primary">Ajouter un menu</a>
+</div>
 <div class= 'd-flex justify-content-center'>
-
     <table class="table px-4 container table-striped table-hover">
         <thead>
             <tr>
                  <th scope="col">#</th>
                  <th scope="col">Titre</th>
                  <th scope="col">Description</th>
+                 <th scope="col">Entrées</th>
+                 <th scope="col">Plats</th>
+                 <th scope="col">Desserts</th>
                  <th scope="col">Opérations</th>
+                 
             </tr>
         </thead>
         <tbody>
@@ -20,7 +26,28 @@
                 <tr>
                     <td>{{ menu.id }}</td>
                     <td>{{ menu.title }}</td>
-                    <td>{{ menu.description }}</td>
+                    <td class="col-4">{{ menu.description }}</td>
+                    <td>
+                    <ul>
+                    {% for starter in menu.starters %}
+                        <li>{{ starter.name}}</li>
+                    {% endfor %} 
+                    </ul>       
+                    </td>
+                    <td>
+                    <ul>
+                    {% for meal in menu.meals %}
+                        <li>{{ meal.name}}</li>
+                    {% endfor %}  
+                    </ul>      
+                    </td>
+                    <td>
+                    <ul>
+                    {% for dessert in menu.desserts %}
+                        <li>{{ dessert.name}}</li>
+                    {% endfor %}
+                    </ul>      
+                    </td>
                     <td>
                         <a href="{{ path('admin_menu_edit', {'id': menu.id}) }}" class="btn btn-primary mb-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">

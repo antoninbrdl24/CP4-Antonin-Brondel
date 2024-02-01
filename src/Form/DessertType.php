@@ -20,12 +20,26 @@ class DessertType extends AbstractType
     {
         $builder
             ->add('description', TextareaType::class)
-            ->add('allergens', TextType::class, [
+            ->add('allergens', ChoiceType::class, [
+                'choices'  => [
+                    'oeuf' => 'oeuf',
+                    'lactose' => 'lactose',
+                    'arachadides' => 'arachadides',
+                    'crustacés' => 'crustacés',
+                    'pectine' => 'pectine',
+                    'gluten' => 'gluten',
+                    'poisson' => 'poisson',
+                ],
                 'required' => false,
+                'multiple' => true,
+                'expanded' => true,
             ])
-            ->add('name', TextType::class)
+            ->add('name', TextType::class, [
+                'label' => 'Nom',
+            ])
             ->add('pictureFile', VichFileType::class, [
                 'required'      => false,
+                'label' => 'Image',
                 'allow_delete'  => true,
                 'download_uri' => true,
             ])

@@ -4,6 +4,9 @@
 
 {% block body %}
 <h1 class="justify-content-center mx-auto pt-4">Liste des entrées</h1>
+<div class='mt-2 mb-3 d-flex justify-content-center'> 
+    <a href="{{ path('admin_starter_new')}}" class="btn btn-primary">Ajouter une entrée</a>
+</div>
      <div class= 'd-flex justify-content-center'>
     {{ form(form, {'attr': {'class': 'mx-auto'}}) }}
     </div>
@@ -29,10 +32,10 @@
                     <td>{{ starter.description }}</td>
                     <td>{{ starter.menu.title }}</td>
                     <td>
-                        {% if starter.picture != 'default_poster_value.svg' %}
-                            <img  class="img-fluid" src="/uploads/starter/{{ starter.picture }}" alt="{{ starter.name }}">
+                        {% if starter.id <= 6 %}
+                            <img class="img-fluid" src="/uploads/starter/{{ starter.picture }}" alt="{{ starter.name }}">
                         {% else %}
-                            <img  class="img-fluid" src="{{ upload_directory_starter ~ starter.picture }}" alt="{{ starter.name }}">
+                            <img class="img-fluid" src="/uploads/images/starter/{{ starter.picture }}" alt="{{ starter.name }}">
                         {% endif %}
                     </td>
                     <td>

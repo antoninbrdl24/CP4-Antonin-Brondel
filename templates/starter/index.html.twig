@@ -10,7 +10,11 @@
             {% for starter in starters %}
             <div class="col-4">
                 <div class="m-3 card">
-                    <img src="/uploads/starter/{{ starter.picture }}" alt="{{starter.name}}">
+                    {% if starter.id <= 6 %}
+                            <img class="img-fluid" src="/uploads/starter/{{ starter.picture }}" alt="{{ starter.name }}">
+                    {% else %}
+                            <img class="img-fluid" src="/uploads/images/starter/{{ starter.picture }}" alt="{{ starter.name }}">
+                    {% endif %}
                     <h2 class="pt-2 text-center"> {{starter.name}}</h2>
                     
                     <p class="mx-auto mt-1">

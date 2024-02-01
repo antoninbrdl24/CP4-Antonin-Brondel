@@ -41,19 +41,31 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="2500">
-                        <img src="{{ asset('uploads/starter/' ~ starters[0].picture) }}" class="d-block w-100" alt="{{starters[0].name}}">
+                         {% if starters[0].id <= 6 %}
+                            <img class="img-fluid" src="/uploads/starter/{{ starters[0].picture }}" alt="{{starters[0].name }}">
+                        {% else %}
+                            <img class="img-fluid" src="/uploads/images/starter/{{ starters[0].picture }}" alt="{{ starters[0].name }}">
+                        {% endif %}
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{starters[0].name}}</h5>
                         </div>
                         </div>
                         <div class="carousel-item " data-bs-interval="2500">
-                        <img src="{{ asset('uploads/meal/' ~ meals[0].picture) }}" class="d-block w-100" alt="{{meals[0].name}}">
+                        {% if meals[0].id <= 6 %}
+                            <img class="img-fluid" src="/uploads/meal/{{ meals[0].picture }}" alt="{{meals[0].name }}">
+                        {% else %}
+                            <img class="img-fluid" src="/uploads/images/meal/{{ meals[0].picture }}" alt="{{ meals[0].name }}">
+                        {% endif %}
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{meals[0].name}}</h5>
                         </div>
                         </div>
                         <div class="carousel-item " data-bs-interval="2500">
-                        <img src="{{ asset('uploads/dessert/' ~ desserts[0].picture) }}" class="d-block w-100" alt="{{desserts[0].name}}">
+                         {% if desserts[0].id <= 6 %}
+                            <img class="img-fluid" src="/uploads/dessert/{{ desserts[0].picture }}" alt="{{desserts[0].name }}">
+                        {% else %}
+                            <img class="img-fluid" src="/uploads/images/dessert/{{ desserts[0].picture }}" alt="{{ desserts[0].name }}">
+                        {% endif %}
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{desserts[0].name}}</h5>
                         </div>
@@ -78,19 +90,31 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active special-height" data-bs-interval="2400">
-                        <img src="{{ asset('uploads/starter/' ~ starters[1].picture) }}" class="d-block w-100" alt="{{starters[1].name}}">
+                        {% if starters[1].id <= 6 %}
+                            <img class="img-fluid" src="/uploads/starter/{{ starters[1].picture }}" alt="{{starters[1].name }}">
+                        {% else %}
+                            <img class="img-fluid" src="/uploads/images/starter/{{ starters[1].picture }}" alt="{{ starters[1].name }}">
+                        {% endif %}
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{starters[1].name}}</h5>
                         </div>
                         </div>
                         <div class="carousel-item special-height" data-bs-interval="2400">
-                        <img src="{{ asset('uploads/meal/' ~ meals[1].picture) }}" class="d-block w-100" alt="{{meals[1].name}}">
+                        {% if meals[1].id <= 6 %}
+                            <img class="img-fluid" src="/uploads/meal/{{ meals[1].picture }}" alt="{{meals[1].name }}">
+                        {% else %}
+                            <img class="img-fluid" src="/uploads/images/meal/{{ meals[1].picture }}" alt="{{ meals[1].name }}">
+                        {% endif %}
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{meals[1].name}}</h5>
                         </div>
                         </div>
                         <div class="carousel-item special-height" data-bs-interval="2400">
-                        <img src="{{ asset('uploads/dessert/' ~ desserts[1].picture) }}" class="d-block w-100" alt="{{desserts[1].name}}">
+                        {% if desserts[1].id <= 6 %}
+                            <img class="img-fluid" src="/uploads/dessert/{{ desserts[1].picture }}" alt="{{desserts[1].name }}">
+                        {% else %}
+                            <img class="img-fluid" src="/uploads/images/dessert/{{ desserts[1].picture }}" alt="{{ desserts[1].name }}">
+                        {% endif %}
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{desserts[1].name}}</h5>
                         </div>
@@ -115,19 +139,31 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active special-height" data-bs-interval="2200">
-                        <img src="{{ asset('uploads/starter/' ~ starters[2].picture) }}" class="d-block w-100" alt="{{starters[2].name}}">
+                        {% if starters[2].id <= 6 %}
+                            <img class="img-fluid" src="/uploads/starter/{{ starters[2].picture }}" alt="{{starters[2].name }}">
+                        {% else %}
+                            <img class="img-fluid" src="/uploads/images/starter/{{ starters[2].picture }}" alt="{{ starters[2].name }}">
+                        {% endif %}
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{starters[2].name}}</h5>
                         </div>
                         </div>
                         <div class="carousel-item special-height" data-bs-interval="2200">
-                        <img src="{{ asset('uploads/meal/' ~ meals[2].picture) }}" class="d-block w-100" alt="{{meals[2].name}}">
+                        {% if meals[2].id <= 6 %}
+                            <img class="img-fluid" src="/uploads/meal/{{ meals[2].picture }}" alt="{{meals[2].name }}">
+                        {% else %}
+                            <img class="img-fluid" src="/uploads/images/meal/{{ meals[2].picture }}" alt="{{ meals[2].name }}">
+                        {% endif %}
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{meals[2].name}}</h5>
                         </div>
                         </div>
                         <div class="carousel-item special-height" data-bs-interval="2200">
-                        <img src="{{ asset('uploads/dessert/' ~ desserts[2].picture) }}" class="d-block w-100" alt="{{desserts[2].name}}">
+                        {% if desserts[2].id <= 6 %}
+                            <img class="img-fluid" src="/uploads/dessert/{{ desserts[2].picture }}" alt="{{desserts[2].name }}">
+                        {% else %}
+                            <img class="img-fluid" src="/uploads/images/dessert/{{ desserts[2].picture }}" alt="{{ desserts[2].name }}">
+                        {% endif %}
                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{desserts[2].name}}</h5>
                         </div>

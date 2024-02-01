@@ -4,6 +4,9 @@
 
 {% block body %}
 <h1 class="justify-content-center mx-auto pt-4">Liste des desserts</h1>
+<div class='mt-2 mb-3 d-flex justify-content-center'> 
+    <a href="{{ path('admin_dessert_new')}}" class="btn btn-primary">Ajouter un dessert</a>
+</div>
      <div class= 'd-flex justify-content-center'>
     {{ form(form, {'attr': {'class': 'mx-auto'}}) }}
     </div>
@@ -29,10 +32,10 @@
                     <td>{{ dessert.description }}</td>
                     <td>{{ dessert.menu.title }}</td>
                     <td>
-                        {% if dessert.picture != 'default_poster_value.svg' %}
-                            <img  class="img-fluid" src="/uploads/dessert/{{ dessert.picture }}" alt="{{ dessert.name }}">
+                        {% if dessert.id <= 6 %}
+                            <img class="img-fluid" src="/uploads/dessert/{{ dessert.picture }}" alt="{{ dessert.name }}">
                         {% else %}
-                            <img  class="img-fluid" src="{{ upload_directory_dessert ~ dessert.picture }}" alt="{{ dessert.name }}">
+                            <img class="img-fluid" src="/uploads/images/dessert/{{ dessert.picture }}" alt="{{ dessert.name }}">
                         {% endif %}
                     </td>
                     <td>

@@ -14,10 +14,10 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route('/admin/dashboard', name: 'admin_contact_')]
+#[Route('/admin/dashboard/contact', name: 'admin_contact_')]
 class DashboardContactController extends AbstractController
 {
-    #[Route('/contact', name: 'index')]
+    #[Route('/index', name: 'index')]
     public function showContact(
         ContactRepository $contactRepository,
         PaginatorInterface $paginator,
@@ -65,7 +65,7 @@ class DashboardContactController extends AbstractController
         ]);
     }
 
-    #[Route('/deleteContact/{id}', name: 'delete')]
+    #[Route('/delete/{id}', name: 'delete')]
     public function deleteContact(Request $request, Contact $contact, EntityManagerInterface $entityManager): Response
     {
         $submittedToken = $request->request->get('_token');

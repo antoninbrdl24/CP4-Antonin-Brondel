@@ -4,6 +4,9 @@
 
 {% block body %}
 <h1 class="justify-content-center mx-auto pt-4">Liste des Plats</h1>
+<div class='mt-2 mb-3 d-flex justify-content-center'> 
+    <a href="{{ path('admin_meal_new')}}" class="btn btn-primary">Ajouter un plat</a>
+</div>
      <div class= 'd-flex justify-content-center'>
     {{ form(form, {'attr': {'class': 'mx-auto'}}) }}
     </div>
@@ -29,10 +32,10 @@
                     <td>{{ meal.description }}</td>
                     <td>{{ meal.menu.title }}</td>
                     <td>
-                        {% if meal.picture != 'default_poster_value.svg' %}
-                            <img  class="img-fluid" src="/uploads/meal/{{ meal.picture }}" alt="{{ meal.name }}">
+                        {% if meal.id <= 6 %}
+                            <img class="img-fluid" src="/uploads/meal/{{ meal.picture }}" alt="{{ meal.name }}">
                         {% else %}
-                            <img  class="img-fluid" src="{{ upload_directory_meal ~ meal.picture }}" alt="{{ meal.name }}">
+                            <img class="img-fluid" src="/uploads/images/meal/{{ meal.picture }}" alt="{{ meal.name }}">
                         {% endif %}
                     </td>
                     <td>
