@@ -1,6 +1,7 @@
 $color-form: #c9dbe2 ;
 $bs-btn-bg: #c9dbe3;
 $bs-btn-color: #871F2B;
+$bs-card-gap-bg: #fff;
 $font-family-titres: 'Carattere', sans-serif;
 $font-family-textes: 'Pill Gothic 600mg', sans-serif;
 $font-family-base: $font-family-textes; 
@@ -9,6 +10,11 @@ body{
     min-height: 100vh;
     font-family: $font-family-base;
     margin: 0;
+}
+
+.card-header{
+    background-color: $bs-card-gap-bg !important;
+    border-bottom: #fff !important;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: $font-family-titres;

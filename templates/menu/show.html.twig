@@ -18,9 +18,12 @@
             <p class="pe-3 text-center">{{menu.description}}</p>
 
             <div class="row">
-                <div class="col">
-                    <h3 class="mt-5">L'entrée</h3>
+                <div class="card border-0 col">
+                    <div class="card-header">
+                    <h3 class="mt-5 text-center">L'entrée</h3>
+                    </div>
                     {% for starter in menu.starters %}
+                    <div class="card-body">
                     <p class="pe-3">{{starter.name}}</p> 
                     <p class="pe-3">{{starter.description}} </p>
                     <img src="{{asset('uploads/starter/' ~ starter.picture) }}" alt="{{starter.name}}" class="img-fluid"> 
@@ -31,11 +34,15 @@
                             </svg> Voir la fiche technique
                             </a>
                     </p> 
+                    </div>
                     {% endfor %} 
                 </div>
-                <div class="col">
-                    <h3 class="mt-5">Le plat</h3>
+                <div class="card  border-0 col">
+                    <div class="card-header">
+                    <h3 class="mt-5 text-center">Le plat</h3>
+                    </div>
                     {% for meal in menu.meals %}
+                    <div class="card-body">
                     <p class="pe-3">{{meal.name}}</p> 
                     <p class="pe-3">{{meal.description}} </p>
                     <img src="{{asset('uploads/meal/' ~ meal.picture)}}" alt="{{meal.name}}" class="img-fluid">  
@@ -46,11 +53,15 @@
                             </svg> Voir la fiche technique
                             </a>
                     </p>
+                    </div>
                     {% endfor %}  
                 </div>
-                <div class="col">
-                    <h3 class="mt-5">Le dessert</h3>
+                <div class="card  border-0  col">
+                    <div class="card-header">
+                    <h3 class="mt-5 text-center">Le dessert</h3>
+                    </div>
                      {% for dessert in menu.desserts %}
+                    <div class="card-body">
                     <p class="pe-3">{{dessert.name}}</p> 
                     <p class="pe-3">{{dessert.description}} </p>
                     <img src="{{asset('uploads/dessert/' ~ dessert.picture)}}" alt="{{dessert.name}}" class="img-fluid">
@@ -61,6 +72,7 @@
                             </svg> Voir la fiche technique
                             </a>
                     </p>
+                    </div>
                     {% endfor %}    
                 </div>
             </div>
