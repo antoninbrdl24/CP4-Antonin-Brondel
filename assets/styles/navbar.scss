@@ -34,7 +34,7 @@
     bottom: 25%;
 }
 .list-group li:hover::after {
-    width: fit-content;
+    width: 100%;
     height: 1px;
     background-color: #fff;
 }

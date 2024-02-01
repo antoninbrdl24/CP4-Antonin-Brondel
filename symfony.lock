@@ -79,6 +79,21 @@
             "phpcs.xml.dist"
         ]
     },
+    "symfony/asset-mapper": {
+        "version": "6.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "6.4",
+            "ref": "7824128ef0da56f09a376539d00a17e23e9b5054"
+        },
+        "files": [
+            "assets/app.js",
+            "assets/styles/app.css",
+            "config/packages/asset_mapper.yaml",
+            "importmap.php"
+        ]
+    },
     "symfony/console": {
         "version": "6.4",
         "recipe": {
@@ -319,5 +334,17 @@
     },
     "twig/extra-bundle": {
         "version": "v3.8.0"
+    },
+    "vich/uploader-bundle": {
+        "version": "2.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.13",
+            "ref": "1b3064c2f6b255c2bc2f56461aaeb76b11e07e36"
+        },
+        "files": [
+            "config/packages/vich_uploader.yaml"
+        ]
     }
 }

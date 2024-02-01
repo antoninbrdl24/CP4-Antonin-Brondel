@@ -1,36 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" type="image/png" href="{{ asset('build/images/logo-wild-code-school.svg') }}"/>
-        <title>{% block title %}Dashboard{% endblock %}</title>
-
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-
-        {% block javascripts %}		
-            {{ importmap('app') }}
-        {% endblock %}
-    </head>
-<body class="body_login">
+{% extends 'base.html.twig'%} 
 {% block body %}
-    {% for flash_error in app.flashes('reset_password_error') %}
-        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-    {% endfor %}
-    <header>
-            {# Navbar top #}
-            <nav class="navbar_login">
-                <img src="{{ asset('images/logo-loreal-reveal-yourself-blanc.svg') }}" class="logo_dashboard">
-            </nav>
-        </header>
-    <section class="section_login">
-     <div class="div_login">
-    <h1 class="title_login mb-4">Reset your password</h1>
+<div class="container col-3 justify-content-center mt-4 mx-auto border-general">
+    <div class="container px-2">
+    <h1 class=" mb-4">Reset your password</h1>
 
     {{ form_start(requestForm) }}
-        {{ form_row(requestForm.email,  {'attr': {'class': 'input_login mb-3', 'placeholder': 'email' }}) }}
+        {{ form_row(requestForm.email,  {'attr': {'placeholder': 'email', 'class': 'form-block' }}) }}
         <div class="mb-3">
             <small>
                 Enter your email address, and we will send you a
@@ -38,13 +13,8 @@
             </small>
         </div>
 
-        <button class="btn btn-primary">Send</button>
+        <button class="btn btn-primary  mx-sm-4 mb-2">Envoyer</button>
     {{ form_end(requestForm) }}
     </div>
-    </section>
-     <footer class="footer_login">
-            <p>Créé avec<i class="fa-solid fa-heart icon_footer"></i>Wild Code School x L'Oréal</p>
-        </footer>
+</div>
 {% endblock %}
-</body>
-</html>
