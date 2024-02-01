@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Menu;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Menu>
@@ -21,6 +22,10 @@ class MenuRepository extends ServiceEntityRepository
         parent::__construct($registry, Menu::class);
     }
 
+    public function queryFindAllMenu(): Query
+    {
+        return $this->createQueryBuilder(alias:'m')->orderBy('m.id', 'ASC')->getQuery();
+    }
 //    /**
 //     * @return Menu[] Returns an array of Menu objects
 //     */

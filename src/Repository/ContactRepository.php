@@ -3,8 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Contact;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Contact>
@@ -21,6 +22,19 @@ class ContactRepository extends ServiceEntityRepository
         parent::__construct($registry, Contact::class);
     }
 
+    public function queryFindAllContact(): Query
+    {
+        return $this->createQueryBuilder(alias:'c')->orderBy('c.id', 'ASC')->getQuery();
+    }
+
+    public function findByDemandType(string $demandType): array
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.demand = :demandType')
+            ->setParameter('demandType', $demandType)
+            ->getQuery()
+            ->getResult();
+    }
 //    /**
 //     * @return Contact[] Returns an array of Contact objects
 //     */

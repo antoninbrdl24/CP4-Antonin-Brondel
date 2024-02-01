@@ -48,6 +48,9 @@ class Meal
     )]
     private ?File $pictureFile = null;
 
+    #[ORM\Column(type: 'json', nullable: true)]
+    private array $allergens = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -96,6 +99,13 @@ class Meal
         return $this->menu;
     }
 
+    public function setAllergens(array $allergens): static
+    {
+        $this->allergens = $allergens;
+
+        return $this;
+    }
+
     public function getName(): ?string
     {
         return $this->name;
@@ -121,5 +131,10 @@ class Meal
         $this->menu = $menu;
 
         return $this;
+    }
+
+    public function getAllergens(): array
+    {
+        return $this->allergens;
     }
 }

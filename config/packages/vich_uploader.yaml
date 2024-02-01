@@ -5,15 +5,15 @@ vich_uploader:
         type: attribute
     
     mappings:
-        starter_poster:
+        starter:
             uri_prefix: /uploads/images/starter/
             upload_destination: '%upload_directory_starter%'
-            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
-        meal_poster:
+            namer: Vich\UploaderBundle\Naming\OrignameNamer
+        meal:
             uri_prefix: uploads/images/meal/
             upload_destination: '%upload_directory_meal%'
-            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
-        dessert_poster:
+            namer: Vich\UploaderBundle\Naming\OrignameNamer
+        dessert:
             uri_prefix: uploads/images/dessert
             upload_destination: '%upload_directory_dessert%'
-            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            namer: Vich\UploaderBundle\Naming\OrignameNamer
