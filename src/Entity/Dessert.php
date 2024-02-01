@@ -48,6 +48,9 @@ class Dessert
     )]
     private ?File $pictureFile = null;
 
+    #[ORM\Column(type: 'json', nullable: true)]
+    private array $allergens = [];
+
     public function getMenu(): ?Menu
     {
         return $this->menu;
@@ -120,6 +123,18 @@ class Dessert
         if ($pictureFile) {
             $this->updatedAt = new DateTime('now');
         }
+        return $this;
+    }
+
+    public function getAllergens(): array
+    {
+        return $this->allergens;
+    }
+
+    public function setAllergens(array $allergens): static
+    {
+        $this->allergens = $allergens;
+
         return $this;
     }
 }

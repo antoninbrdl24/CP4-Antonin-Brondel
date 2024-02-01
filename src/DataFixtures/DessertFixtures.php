@@ -16,6 +16,7 @@ class DessertFixtures extends Fixture implements DependentFixtureInterface
         vanillée, délicieusement caramélisée à la perfection en surface. La cassure du caramel croquant révèle 
         une texture onctueuse et une explosion de saveurs qui raviront vos papilles.',
         'Menu' => 'menu_Tradition',
+        'allergens' => ['oeuf','lactose'],
         'picture' => 'creme.png'],
 
         ['name' => 'Tarte Tatin',
@@ -23,6 +24,7 @@ class DessertFixtures extends Fixture implements DependentFixtureInterface
         où les pommes caramélisées fondent dans une croûte feuilletée dorée. Accompagnée d\'une touche de crème 
         fraîche, cette tarte offre une finale sucrée inoubliable.',
         'Menu' => 'menu_Méditérranée',
+        'allergens' => ['gluten','oeuf'],
         'picture' => 'tarte.png'],
 
         ['name' => 'Île Flottante',
@@ -30,6 +32,7 @@ class DessertFixtures extends Fixture implements DependentFixtureInterface
         sucré, flottant sur un océan de crème anglaise vanillée. Une douceur aérienne qui fond en bouche pour 
         une fin de repas légère et délicieuse.',
         'Menu' => 'menu_Provence',
+        'allergens' => ['oeuf'],
         'picture' => 'isle.jpg'],
 
         ['name' => 'Macarons',
@@ -37,6 +40,7 @@ class DessertFixtures extends Fixture implements DependentFixtureInterface
         aux couleurs vives. Chaque bouchée révèle des garnitures exquises, créant une finale sucrée qui capture 
         l\'essence de la pâtisserie parisienne.',
         'Menu' => 'menu_Paris',
+        'allergens' => ['gluten','oeuf','lactose'],
         'picture' => 'macarons.png'],
 
         ['name' => 'Tarte à la Praline',
@@ -44,6 +48,7 @@ class DessertFixtures extends Fixture implements DependentFixtureInterface
         La praline rose crée une sensation délicate en bouche, rendant ce dessert incontournable pour 
         une expérience gustative lyonnaise authentique.',
         'Menu' => 'menu_Lyon',
+        'allergens' => ['gluten','oeuf','arachides','fruits à coque'],
         'picture' => 'praline.png'],
 
         ['name' => 'Bretzel Sucré à la Pâte d\'Amandes',
@@ -52,6 +57,7 @@ class DessertFixtures extends Fixture implements DependentFixtureInterface
         Un incontournable dessert qui capture l\'essence sucrée de la région de manière délicieusement 
         traditionnelle.',
         'Menu' => 'menu_Alsace',
+        'allergens' => ['gluten','oeuf','lactose'],
         'picture' => 'bretzel.png'],
 
 
@@ -74,6 +80,7 @@ class DessertFixtures extends Fixture implements DependentFixtureInterface
             $dessert = new Dessert();
             $dessert->setName($dessertData['name']);
             $dessert->setDescription($dessertData['description']);
+            $dessert->setAllergens($dessertData['allergens']);
 
             $menu = $this->getReference($dessertData['Menu']);
             $dessert->setMenu($menu);

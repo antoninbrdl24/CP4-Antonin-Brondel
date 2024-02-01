@@ -13,6 +13,11 @@
         <h2 class="card-title mb-4 text-center">A propos de ce dessert</h2>
 
         <p class="pe-3 text-center">{{dessert.description}}</p>
+        {% if starter.allergens is not empty %}
+        <p class="pe-3 text-center">
+                Allergènes : {{ dessert.allergens | join(', ') }}
+        </p>
+        {% endif %}
         <p class="pe-3 text-center"> Ce dessert fait partie de notre menu "{{dessert.menu.title}}" </p>
         <img src="{{asset('uploads/dessert/' ~ dessert.picture )}}" alt="{{dessert.name}}" class="img-fluid"> 
 </div>

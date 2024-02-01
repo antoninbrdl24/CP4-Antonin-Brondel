@@ -48,6 +48,9 @@ class Starter
     )]
     private ?File $pictureFile = null;
 
+    #[ORM\Column(type: 'json', nullable: true)]
+    private array $allergens = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -114,6 +117,13 @@ class Starter
         return $this->pictureFile;
     }
 
+    public function setAllergens(array $allergens): static
+    {
+        $this->allergens = $allergens;
+
+        return $this;
+    }
+
     public function setPictureFile(File $pictureFile = null): Starter
     {
         $this->pictureFile = $pictureFile;
@@ -121,5 +131,10 @@ class Starter
             $this->updatedAt = new DateTime('now');
         }
         return $this;
+    }
+
+    public function getAllergens(): array
+    {
+        return $this->allergens;
     }
 }

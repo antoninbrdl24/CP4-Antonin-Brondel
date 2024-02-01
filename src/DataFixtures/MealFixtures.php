@@ -16,6 +16,7 @@ class MealFixtures extends Fixture implements DependentFixtureInterface
         français où le poulet mijote lentement dans un mélange succulent de vin rouge, de champignons, d\'oignons 
         et d\'herbes aromatiques, créant une symphonie de saveurs qui fond dans la bouche.',
         'Menu' => 'menu_Tradition',
+        'allergens' => ['aucun'],
         'picture' => 'coq_au_vin.png'],
 
         ['name' => 'Ratatouille',
@@ -23,6 +24,7 @@ class MealFixtures extends Fixture implements DependentFixtureInterface
         légumes frais mijotés dans une sauce tomate parfumée aux herbes de Provence. Chaque bouchée est une 
         explosion de saveurs méditerranéennes.',
         'Menu' => 'menu_Méditérranée',
+        'allergens' => ['aucun'],
         'picture' => 'ratatouille.png'],
 
         ['name' => 'Bouillabaisse',
@@ -30,6 +32,7 @@ class MealFixtures extends Fixture implements DependentFixtureInterface
         méditerranéens mijoté dans une soupe parfumée aux herbes, aux épices et au safran. Un festin qui 
         capture l\'essence même de la cuisine provençale.',
         'Menu' => 'menu_Provence',
+        'allergens' => ['crustacés','poisson'],
         'picture' => 'bouillabaisse.png'],
 
         ['name' => 'Canard aux Cerises',
@@ -37,6 +40,7 @@ class MealFixtures extends Fixture implements DependentFixtureInterface
         Une symphonie de saveurs s\'exprime dans la sauce aux cerises, accompagnée de pommes de terre 
         sautées, offrant une expérience gastronomique parisienne inoubliable.',
         'Menu' => 'menu_Paris',
+        'allergens' => ['pectine'],
         'picture' => 'duck.png'],
 
         ['name' => 'Rosette de Lyon aux Pistaches',
@@ -45,12 +49,14 @@ class MealFixtures extends Fixture implements DependentFixtureInterface
         qui incarne l\'art culinaire traditionnel de Lyon. Accompagnée de cornichons et de pain de campagne, 
         cette assiette célèbre la charcuterie lyonnaise avec élégance.',
         'Menu' => 'menu_Lyon',
+        'allergens' => ['gluten','fruits à coque','arachides'],
         'picture' => 'rosette.png'],
 
         ['name' => 'Choucroute Garnie',
         'description' => 'Choucroute cuite lentement avec des saucisses alsaciennes, du lard, du jambon, 
         des pommes de terre et assaisonnée de baies de genièvre.',
         'Menu' => 'menu_Alsace',
+        'allergens' => ['aucun'],
         'picture' => 'choucroute.png'],
 
     ];
@@ -72,6 +78,7 @@ class MealFixtures extends Fixture implements DependentFixtureInterface
             $meal = new Meal();
             $meal->setName($mealData['name']);
             $meal->setDescription($mealData['description']);
+            $meal->setAllergens($mealData['allergens']);
 
             $menu = $this->getReference($mealData['Menu']);
             $meal->setMenu($menu);

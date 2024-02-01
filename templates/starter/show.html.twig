@@ -13,6 +13,11 @@
         <h2 class="card-title mb-4 text-center">A propos de cette entrée</h2>
 
         <p class="pe-3 text-center">{{starter.description}}</p>
+        {% if starter.allergens is not empty %}
+        <p class="pe-3 text-center">
+                Allergènes : {{ starter.allergens | join(', ') }}
+        </p>
+        {% endif %}
         <p class="pe-3 text-center"> Cette entrée fait partie de notre menu "{{starter.menu.title}}" </p>
         <img src="{{asset('uploads/starter/' ~ starter.picture )}}" alt="{{starter.name}}" class="img-fluid"> 
 </div>

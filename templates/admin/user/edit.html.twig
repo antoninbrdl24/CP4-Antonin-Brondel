@@ -1,0 +1,20 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}Modification d'un profil utilisateur {% endblock %}
+
+{% block body %}
+    <h1 class="mx-auto pt-4">Modification du profil utilisateur</h1>
+    <div class="container mx-auto border-general">
+    <p>Utilisateur: {{ user.getName() }}  {{ user.getLastName() }}</p>
+    {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.lastname) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.roles) }}
+
+        <button type="submit" class="btn btn-danger"> Sauvegarder ses changements</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('admin_user_index') }}" class="btn btn-primary mt-2">Retour</a>
+     </div>
+{% endblock %}
