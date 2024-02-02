@@ -32,11 +32,7 @@
                     <td>{{ dessert.description }}</td>
                     <td>{{ dessert.menu.title }}</td>
                     <td>
-                        {% if dessert.id <= 6 %}
-                            <img class="img-fluid" src="/uploads/dessert/{{ dessert.picture }}" alt="{{ dessert.name }}">
-                        {% else %}
-                            <img class="img-fluid" src="/uploads/images/dessert/{{ dessert.picture }}" alt="{{ dessert.name }}">
-                        {% endif %}
+                        <img class="img-fluid" src="/uploads/dessert/{{ dessert.picture }}" alt="{{ dessert.name }}">
                     </td>
                     <td>
                         <a href="{{ path('admin_dessert_edit', {'id': dessert.id}) }}" class="btn btn-primary mb-1"> 

@@ -10,11 +10,7 @@
             {% for meal in meals %}
             <div class="col-4">
                 <div class="m-3 card">
-                    {% if meal.id <= 6 %}
-                            <img class="img-fluid" src="/uploads/meal/{{ meal.picture }}" alt="{{ meal.name }}">
-                    {% else %}
-                            <img class="img-fluid" src="/uploads/images/meal/{{ meal.picture }}" alt="{{ meal.name }}">
-                    {% endif %}
+                    <img class="img-fluid" src="/uploads/meal/{{ meal.picture }}" alt="{{ meal.name }}">
                     <h2 class="pt-2 text-center"> {{meal.name}}</h2>
                     
                     <p class="mx-auto mt-1">

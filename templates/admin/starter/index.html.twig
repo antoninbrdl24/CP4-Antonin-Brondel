@@ -32,11 +32,7 @@
                     <td>{{ starter.description }}</td>
                     <td>{{ starter.menu.title }}</td>
                     <td>
-                        {% if starter.id <= 6 %}
-                            <img class="img-fluid" src="/uploads/starter/{{ starter.picture }}" alt="{{ starter.name }}">
-                        {% else %}
-                            <img class="img-fluid" src="/uploads/images/starter/{{ starter.picture }}" alt="{{ starter.name }}">
-                        {% endif %}
+                        <img class="img-fluid" src="/uploads/starter/{{ starter.picture }}" alt="{{ starter.name }}">
                     </td>
                     <td>
                         <a href="{{ path('admin_starter_edit', {'id': starter.id}) }}" class="btn btn-primary mb-1"> 

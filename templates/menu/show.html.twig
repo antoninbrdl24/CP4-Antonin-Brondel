@@ -26,11 +26,7 @@
                     <div class="card-body">
                     <p class="pe-3">{{starter.name}}</p> 
                     <p class="pe-3">{{starter.description}} </p>
-                    {% if starter.id <= 6 %}
-                            <img class="img-fluid" src="/uploads/starter/{{ starter.picture }}" alt="{{ starter.name }}">
-                    {% else %}
-                            <img class="img-fluid" src="/uploads/images/starter/{{ starter.picture }}" alt="{{ starter.name }}">
-                    {% endif %}
+                    <img class="img-fluid" src="/uploads/starter/{{ starter.picture }}" alt="{{ starter.name }}">
                     <p class="mx-auto mt-1">
                             <a class="menu-link" href="{{ path('starter_show', {id:starter.id})}}"> 
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
@@ -49,11 +45,7 @@
                     <div class="card-body">
                     <p class="pe-3">{{meal.name}}</p> 
                     <p class="pe-3">{{meal.description}} </p>
-                    {% if meal.id <= 6 %}
-                            <img class="img-fluid" src="/uploads/meal/{{ meal.picture }}" alt="{{ meal.name }}">
-                    {% else %}
-                            <img class="img-fluid" src="/uploads/images/meal/{{ meal.picture }}" alt="{{ meal.name }}">
-                    {% endif %}
+                    <img class="img-fluid" src="/uploads/meal/{{ meal.picture }}" alt="{{ meal.name }}">
                     <p class="mx-auto mt-1">
                             <a class="menu-link" href="{{ path('meal_show', {id:meal.id})}}"> 
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
@@ -72,11 +64,7 @@
                     <div class="card-body">
                     <p class="pe-3">{{dessert.name}}</p> 
                     <p class="pe-3">{{dessert.description}} </p>
-                    {% if dessert.id <= 6 %}
-                            <img class="img-fluid" src="/uploads/dessert/{{ dessert.picture }}" alt="{{ dessert.name }}">
-                    {% else %}
-                            <img class="img-fluid" src="/uploads/images/dessert/{{ dessert.picture }}" alt="{{ dessert.name }}">
-                    {% endif %}
+                    <img class="img-fluid" src="/uploads/dessert/{{ dessert.picture }}" alt="{{ dessert.name }}">
                     <p class="mx-auto mt-1">
                             <a class="menu-link" href="{{ path('dessert_show', {id:dessert.id})}}"> 
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">

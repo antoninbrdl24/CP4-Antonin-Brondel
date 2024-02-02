@@ -19,11 +19,8 @@
         </p>
         {% endif %}
         <p class="pe-3 text-center"> Cette entrée fait partie de notre menu "{{starter.menu.title}}" </p>
-        {% if starter.id <= 6 %}
-                <img class="img-fluid" src="/uploads/starter/{{ starter.picture }}" alt="{{ starter.name }}">
-        {% else %}
-                <img class="img-fluid" src="/uploads/images/starter/{{ starter.picture }}" alt="{{ starter.name }}">
-        {% endif %}
+        <img class="img-fluid" src="/uploads/starter/{{ starter.picture }}" alt="{{ starter.name }}">
+       
 </div>
 
 

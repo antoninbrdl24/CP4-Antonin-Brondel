@@ -19,11 +19,7 @@
         </p>
         {% endif %}
         <p class="pe-3 text-center"> Ce dessert fait partie de notre menu "{{dessert.menu.title}}" </p>
-        {% if dessert.id <= 6 %}
-                <img class="img-fluid" src="/uploads/dessert/{{ dessert.picture }}" alt="{{ dessert.name }}">
-        {% else %}
-                <img class="img-fluid" src="/uploads/images/dessert/{{ dessert.picture }}" alt="{{ dessert.name }}">
-        {% endif %}
+        <img class="img-fluid" src="/uploads/dessert/{{ dessert.picture }}" alt="{{ dessert.name }}">
 </div>
 
 

@@ -32,11 +32,7 @@
                     <td>{{ meal.description }}</td>
                     <td>{{ meal.menu.title }}</td>
                     <td>
-                        {% if meal.id <= 6 %}
-                            <img class="img-fluid" src="/uploads/meal/{{ meal.picture }}" alt="{{ meal.name }}">
-                        {% else %}
-                            <img class="img-fluid" src="/uploads/images/meal/{{ meal.picture }}" alt="{{ meal.name }}">
-                        {% endif %}
+                        <img class="img-fluid" src="/uploads/meal/{{ meal.picture }}" alt="{{ meal.name }}">
                     </td>
                     <td>
                         <a href="{{ path('admin_meal_edit', {'id': meal.id}) }}" class="btn btn-primary mb-1"> 
