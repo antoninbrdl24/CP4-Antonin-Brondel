@@ -18,7 +18,11 @@
                 Allergènes : {{ starter.allergens | join(', ') }}
         </p>
         {% endif %}
-        <p class="pe-3 text-center"> Cette entrée fait partie de notre menu "{{starter.menu.title}}" </p>
+        {% if starter.menu %}
+                <p class="pe-3 text-center"> Cette entrée fait partie de notre menu "{{starter.menu.title}}" </p>
+        {% else %}
+                <p class="pe-3 text-center"> Cette entrée n'appartient à aucun menu pour l'instant</p>
+        {% endif %}
         <img class="img-fluid" src="/uploads/starter/{{ starter.picture }}" alt="{{ starter.name }}">
        
 </div>

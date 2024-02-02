@@ -18,7 +18,11 @@
                 Allergènes : {{ meal.allergens | join(', ') }}
         </p>
         {% endif %}
-        <p class="pe-3 text-center"> Ce plat fait partie de notre menu "{{meal.menu.title}}" </p>
+        {% if meal.menu %}
+                <p class="pe-3 text-center"> Ce plat fait partie de notre menu "{{meal.menu.title}}" </p>
+        {% else %}
+                <p class="pe-3 text-center"> Ce plat n'appartient à aucun menu pour l'instant</p>
+        {% endif %}
         <img class="img-fluid" src="/uploads/meal/{{ meal.picture }}" alt="{{ meal.name }}">
 </div>
 

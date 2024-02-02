@@ -18,7 +18,11 @@
                 Allergènes : {{ dessert.allergens | join(', ') }}
         </p>
         {% endif %}
-        <p class="pe-3 text-center"> Ce dessert fait partie de notre menu "{{dessert.menu.title}}" </p>
+        {% if dessert.menu %}
+                <p class="pe-3 text-center"> Ce dessert fait partie de notre menu "{{dessert.menu.title}}" </p>
+        {% else %}
+                <p class="pe-3 text-center"> Ce dessert n'appartient à aucun menu pour l'instant</p>
+        {% endif %}
         <img class="img-fluid" src="/uploads/dessert/{{ dessert.picture }}" alt="{{ dessert.name }}">
 </div>
 
