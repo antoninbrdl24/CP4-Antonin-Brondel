@@ -30,7 +30,7 @@
                     <td>{{ starter.id }}</td>
                     <td>{{ starter.name }}</td>
                     <td>{{ starter.description }}</td>
-                    <td>{{ starter.menu.title }}</td>
+                    <td>{{ starter.menu ? starter.menu.title : 'Pas de menu' }}</td>
                     <td>
                         <img class="img-fluid" src="/uploads/starter/{{ starter.picture }}" alt="{{ starter.name }}">
                     </td>

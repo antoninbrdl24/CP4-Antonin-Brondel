@@ -30,7 +30,7 @@
                     <td>{{ meal.id }}</td>
                     <td>{{ meal.name }}</td>
                     <td>{{ meal.description }}</td>
-                    <td>{{ meal.menu.title }}</td>
+                    <td>{{ meal.menu ? meal.menu.title : 'Pas de menu' }}</td>
                     <td>
                         <img class="img-fluid" src="/uploads/meal/{{ meal.picture }}" alt="{{ meal.name }}">
                     </td>

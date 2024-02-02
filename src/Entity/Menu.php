@@ -25,24 +25,18 @@ class Menu
     #[ORM\OneToMany(
         mappedBy: 'menu',
         targetEntity: Starter::class,
-        cascade:['persist', 'remove'],
-        orphanRemoval: true
     )]
     private Collection $starters;
 
     #[ORM\OneToMany(
         mappedBy: 'menu',
         targetEntity: Meal::class,
-        cascade:['persist', 'remove'],
-        orphanRemoval: true
     )]
     private Collection $meals;
 
     #[ORM\OneToMany(
         mappedBy: 'menu',
         targetEntity: Dessert::class,
-        cascade:['persist', 'remove'],
-        orphanRemoval: true
     )]
     private Collection $desserts;
 
